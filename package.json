@@ -1,0 +1,12 @@
+{
+  "name": "tourdom-html",
+  "version": "0.0.1",
+  "description": "tourdom-birga html presentaton",
+  "main": "server.js",
+  "author": "kiote",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express4-handlebars": "^0.2.0",
+    "request": "^2.79.0"
+  }
+}
