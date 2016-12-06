@@ -1,14 +1,11 @@
 var path = require('path');
 var express = require('express');
 var request = require('request');
-var hbs = require('express4-handlebars');
+var hbs = require('express-handlebars');
 var app = express();
 
-app.engine('hbs', hbs.__express);
-app.set('view engine', 'hbs');
-var views = path.join(__dirname, 'views');
-app.set('views', views);
-hbs.set('layout_dir', path.join(views, 'layout'));
+app.engine('.hbs', hbs({defaultLayout: 'main', extname: '.hbs'}));
+app.set('view engine', '.hbs');
 
 const datasource = 'https://tourdom-birga.herokuapp.com/'
 
