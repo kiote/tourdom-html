@@ -10,18 +10,12 @@ app.set('view engine', '.hbs');
 const datasource = 'https://tourdom-birga.herokuapp.com/'
 
 app.get('/', function (req, res) {
-  request(datasource, function (err, res, body) {
-    if (!err && res.statusCode == 200) {
+  request(datasource, function (err, result, body) {
+    if (!err && result.statusCode == 200) {
       var tours = JSON.parse(body);
-      // console.log(tours);
+      res.render('home', { 'tours': tours['tours'] });
     }
   })
-  console.log('hi');
-  res.render('home');
-// convert content to json
-
-// show content
-  // res.json({});
 })
 
 const port = process.env.PORT || 8080;
