@@ -1,4 +1,34 @@
-<h1>Список туров</h1>
-{{#tours}}
-  {{detail}}<br/>
-{{/tours}}
+<div class="container">
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Полное описание</th>
+      <th>Цена</th>
+      <th>Валюта</th>
+      <th>Город отправления</th>
+      <th>Дата отправления</th>
+      <th>Прибытие</th>
+      <th>Количество дней</th>
+      <th>Тур.оператор</th>
+      <th>Телефон</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#tours}}
+      <tr>
+        <td>{{detail}}</td>
+        <td>{{price}}</td>
+        <td>{{currency}}</td>
+        <td>{{from}}</td>
+        <td>{{depart}}</td>
+        <td>{{arrive}}</td>
+        <td>{{days}}</td>
+        <td>{{operator}}</td>
+        <td>{{phones}}</td>
+        <td>{{email}}</td>
+      </tr>
+      {{/tours}}
+  </tbody>
+</table>
+</div>

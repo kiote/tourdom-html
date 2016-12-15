@@ -6,6 +6,7 @@ var app = express();
 
 app.engine('.hbs', hbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
+app.use(express.static(path.join(__dirname, '/public')));
 
 const datasource = 'https://tourdom-birga.herokuapp.com/'
 
