@@ -8,10 +8,11 @@ app.engine('.hbs', hbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, '/public')));
 
-const datasource = 'https://tourdom-birga.herokuapp.com/'
+const datasource = 'https://tourdom-birga.herokuapp.com'
 
 app.get('/', function (req, res) {
-  request(datasource, function (err, result, body) {
+  url = datasource+req.originalUrl;
+  request(url, function (err, result, body) {
     if (!err && result.statusCode == 200) {
       var tours = JSON.parse(body);
       res.render('home', { 'tours': tours['tours'] });
