@@ -1,26 +1,23 @@
 <div class="container">
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Полное описание</th>
-      <th>Цена руб.</th>
-      <th>Дата отправления</th>
-      <th>Количество дней</th>
-      <th>Телефон</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-      {{#tours}}
-      <tr>
-        <td>{{detail}}</td>
-        <td>{{priceRub}}</td>
-        <td>{{depart}}</td>
-        <td>{{days}}</td>
-        <td>{{phones}}</td>
-        <td>{{email}}</td>
-      </tr>
-      {{/tours}}
-  </tbody>
-</table>
+  <div class="row">
+    <div class="detail">
+    </div>
+    {{#tours}}
+    <div class="eleven columns">
+      <div class="detail">
+        {{detail}} ({{priceRub}} руб.)
+      </div>
+      {{#if days}}
+      <div class="days">
+        Дней: {{days}}
+      </div>
+      {{/if}}
+      <div class="contacts">
+        Тел: {{phones}}<br/>
+        Email: {{email}}
+      </div>
+      <hr/>
+    </div>
+    {{/tours}}
+  </div>
 </div>
