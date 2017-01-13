@@ -1,24 +1,15 @@
-var path = require('path');
-var express = require('express');
-var request = require('request');
-var hbs = require('express-handlebars');
-var app = express();
+const path = require('path');
+const express = require('express');
+const hbs = require('express-handlebars');
+const app = express();
+const router = require('./routes/index')
 
 app.engine('.hbs', hbs({defaultLayout: 'main', extname: '.hbs'}));
+
 app.set('view engine', '.hbs');
+
 app.use(express.static(path.join(__dirname, '/public')));
-
-const datasource = 'https://tourdom-birga.herokuapp.com'
-
-app.get('/', function (req, res) {
-  url = datasource+req.originalUrl;
-  request(url, function (err, result, body) {
-    if (!err && result.statusCode == 200) {
-      var tours = JSON.parse(body);
-      res.render('home', { 'tours': tours['tours'] });
-    }
-  })
-})
+app.use('/', router);
 
 const port = process.env.PORT || 8080;
 app.listen(port, function () {
